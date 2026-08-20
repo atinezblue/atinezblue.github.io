@@ -1,9 +1,244 @@
 <!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
-<title>atinezblue</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dat Vu — Apps &amp; Games</title>
+<meta name="description" content="Mobile apps and games built by Dat Vu. Privacy policy, support, and release status for every product.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6fb0'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3EDV%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dat Vu — Apps &amp; Games">
+<meta property="og:description" content="Mobile apps and games built by Dat Vu. Privacy policy, support, and release status for every product.">
+<meta property="og:url" content="https://atinezblue.github.io/">
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 4rem auto; padding: 0 1rem; line-height: 1.6; }
+  :root {
+    --bg: #f7f8fa;
+    --bg-accent: #eef2f7;
+    --card: #ffffff;
+    --ink: #131b23;
+    --muted: #5c6b7a;
+    --faint: #8494a3;
+    --line: #dfe5ec;
+    --accent: #2f6fb0;
+    --accent-ink: #ffffff;
+    --chip-live-bg: #e6f4ec;
+    --chip-live-ink: #1f6b43;
+    --chip-soon-bg: #eef1f5;
+    --chip-soon-ink: #5c6b7a;
+    --shadow: 0 1px 2px rgba(19, 27, 35, .05), 0 8px 24px rgba(19, 27, 35, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e141a;
+      --bg-accent: #121a22;
+      --card: #161f28;
+      --ink: #e8eef4;
+      --muted: #9aabb9;
+      --faint: #71838f;
+      --line: #24313d;
+      --accent: #6aa9e0;
+      --accent-ink: #0e141a;
+      --chip-live-bg: #12301f;
+      --chip-live-ink: #7fd0a2;
+      --chip-soon-bg: #1c262f;
+      --chip-soon-ink: #9aabb9;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e141a;
+    --bg-accent: #121a22;
+    --card: #161f28;
+    --ink: #e8eef4;
+    --muted: #9aabb9;
+    --faint: #71838f;
+    --line: #24313d;
+    --accent: #6aa9e0;
+    --accent-ink: #0e141a;
+    --chip-live-bg: #12301f;
+    --chip-live-ink: #7fd0a2;
+    --chip-soon-bg: #1c262f;
+    --chip-soon-ink: #9aabb9;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---- header ---- */
+  header.site {
+    background: var(--bg-accent);
+    border-bottom: 1px solid var(--line);
+    padding: 72px 0 56px;
+  }
+  .mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 46px; height: 46px; border-radius: 12px;
+    background: var(--accent); color: var(--accent-ink);
+    font-weight: 700; font-size: 1.05rem; letter-spacing: .02em;
+    margin-bottom: 20px;
+  }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 10px; letter-spacing: -.02em; }
+  .lede { color: var(--muted); font-size: 1.08rem; margin: 0; max-width: 34em; }
+
+  /* ---- products ---- */
+  main.wrap { padding-top: 52px; padding-bottom: 8px; }
+  .section-label {
+    font-size: .78rem; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--faint); font-weight: 600; margin: 0 0 18px;
+  }
+
+  .product {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .product-head { display: flex; gap: 18px; align-items: flex-start; }
+  .product-head img {
+    width: 72px; height: 72px; border-radius: 16px; flex: none;
+    border: 1px solid var(--line); background: var(--bg-accent);
+  }
+  .product-title { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 4px; }
+  .product-title h2 { font-size: 1.2rem; margin: 0; letter-spacing: -.01em; }
+  .chip {
+    font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  }
+  .chip.live { background: var(--chip-live-bg); color: var(--chip-live-ink); }
+  .chip.soon { background: var(--chip-soon-bg); color: var(--chip-soon-ink); }
+  .tagline { color: var(--muted); margin: 0; font-size: .97rem; }
+
+  .platforms {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 20px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line);
+  }
+  .store {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 10px 16px; border-radius: 10px; text-decoration: none;
+    font-size: .92rem; font-weight: 600;
+    background: var(--accent); color: var(--accent-ink);
+    border: 1px solid transparent;
+  }
+  .store svg { width: 17px; height: 17px; flex: none; }
+  .store.pending {
+    background: transparent; color: var(--faint);
+    border-color: var(--line); font-weight: 500; cursor: default;
+  }
+
+  .meta-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px; font-size: .92rem; }
+  .meta-links a { text-decoration: none; }
+  .meta-links a:hover { text-decoration: underline; }
+
+  /* ---- footer ---- */
+  footer.site {
+    margin-top: 40px; padding: 32px 0 56px;
+    border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem;
+  }
+  footer.site p { margin: 0 0 6px; }
+
+  @media (max-width: 520px) {
+    header.site { padding: 52px 0 40px; }
+    h1 { font-size: 1.7rem; }
+    .product { padding: 20px; }
+    .product-head { gap: 14px; }
+    .product-head img { width: 60px; height: 60px; border-radius: 13px; }
+    .store { flex: 1 1 auto; justify-content: center; }
+  }
 </style>
-<h1>atinezblue</h1>
-<p>Game privacy policies and support pages: <a href="/game/">/game/</a></p>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="mark">DV</div>
+    <h1>Dat Vu</h1>
+    <p class="lede">
+      I design and build mobile apps and games on my own — small in scope, simple
+      to pick up, tuned until they feel right. Every product below links to its
+      privacy policy and support page.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="section-label">Products</p>
+
+  <article class="product">
+    <div class="product-head">
+      <img src="assets/bottle-flip.png" alt="Bottle Flip: World Tour app icon" width="72" height="72">
+      <div>
+        <div class="product-title">
+          <h2>Bottle Flip: World Tour</h2>
+          <span class="chip live">Available</span>
+        </div>
+        <p class="tagline">
+          One bottle, 198 destinations. Press, drag to build momentum, release —
+          then land it upright. Travel mode for the tour, Rush mode for the clock.
+        </p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.meo.flipbottletour">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8a1.5 1.5 0 0 0-.5 1.1v18.2c0 .45.18.85.48 1.12L13.4 12 3.6 1.8Zm11.1 8.8L5.5 1.1l11.1 6.4-1.9 3.1Zm0 2.8 1.9 3.1-11.1 6.4 9.2-9.5Zm2.9-4.6 3.1 1.8c1.05.6 1.05 2.2 0 2.8l-3.1 1.8-2.2-3.2 2.2-3.2Z"/></svg>
+        Google Play
+      </a>
+      <span class="store pending">iOS — coming soon</span>
+    </div>
+
+    <div class="meta-links">
+      <a href="/game/privacy.html">Privacy Policy</a>
+      <a href="/game/support.html">Support</a>
+    </div>
+  </article>
+
+  <article class="product">
+    <div class="product-head">
+      <img src="assets/make10.png" alt="Make 10: Number Blocks app icon" width="72" height="72">
+      <div>
+        <div class="product-title">
+          <h2>Make 10: Number Blocks</h2>
+          <span class="chip soon">Coming soon</span>
+        </div>
+        <p class="tagline">
+          Drop a numbered block; a row or column that adds up to exactly 10 clears.
+          Every block sits in one row and one column at once, so every move is a bet
+          on two lines.
+        </p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span class="store pending">Google Play — coming soon</span>
+      <span class="store pending">iOS — coming soon</span>
+    </div>
+
+    <div class="meta-links">
+      <a href="/game/make10/privacy.html">Privacy Policy</a>
+      <a href="/game/make10/support.html">Support</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Questions, bug reports, or account requests: <a href="mailto:datvu.meo@gmail.com">datvu.meo@gmail.com</a></p>
+    <p>&copy; 2026 Dat Vu</p>
+  </div>
+</footer>
+
+</body>
+</html>
