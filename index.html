@@ -120,6 +120,11 @@
   .chip.live { background: var(--chip-live-bg); color: var(--chip-live-ink); }
   .chip.soon { background: var(--chip-soon-bg); color: var(--chip-soon-ink); }
   .tagline { color: var(--muted); margin: 0; font-size: .97rem; }
+  .kind {
+    font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 6px;
+  }
+  .section-label:not(:first-child) { margin-top: 44px; }
 
   .platforms {
     display: flex; flex-wrap: wrap; gap: 10px;
@@ -168,18 +173,50 @@
     <p class="lede">
       I design and build mobile apps and games on my own — small in scope, simple
       to pick up, tuned until they feel right. Every product below links to its
-      privacy policy and support page.
+      privacy policy, support page and, where it has accounts, how to delete one.
     </p>
   </div>
 </header>
 
 <main class="wrap">
-  <p class="section-label">Products</p>
+  <p class="section-label">Apps</p>
+
+  <article class="product">
+    <div class="product-head">
+      <img src="assets/noxbible.png" alt="Nox Bible app icon" width="72" height="72">
+      <div>
+        <p class="kind">Bible reader</p>
+        <div class="product-title">
+          <h2>Nox Bible</h2>
+          <span class="chip soon">Coming soon</span>
+        </div>
+        <p class="tagline">
+          A Bible reader that opens straight into Scripture — 61 translations in
+          50 languages, all offline. Mark, note and bookmark verses, keep a daily
+          reading streak, and sign in only if you want your library on another device.
+        </p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span class="store pending">Google Play &mdash; coming soon</span>
+      <span class="store pending">App Store &mdash; coming soon</span>
+    </div>
+
+    <div class="meta-links">
+      <a href="/app/noxbible/privacy.html">Privacy Policy</a>
+      <a href="/app/noxbible/support.html">Support</a>
+      <a href="/app/noxbible/delete-account.html">Delete account</a>
+    </div>
+  </article>
+
+  <p class="section-label">Games</p>
 
   <article class="product">
     <div class="product-head">
       <img src="assets/bottle-flip.png" alt="Real Flip: Bottle World Tour app icon" width="72" height="72">
       <div>
+        <p class="kind">Casual game</p>
         <div class="product-title">
           <h2>Real Flip: Bottle World Tour</h2>
           <span class="chip live">Available</span>
@@ -204,8 +241,8 @@
     </div>
 
     <div class="meta-links">
-      <a href="/game/privacy.html">Privacy Policy</a>
-      <a href="/game/support.html">Support</a>
+      <a href="/game/realflip/privacy.html">Privacy Policy</a>
+      <a href="/game/realflip/support.html">Support</a>
     </div>
   </article>
 
@@ -213,6 +250,7 @@
     <div class="product-head">
       <img src="assets/make10.png" alt="Make 10: Number Blocks app icon" width="72" height="72">
       <div>
+        <p class="kind">Number puzzle</p>
         <div class="product-title">
           <h2>Make 10: Number Blocks</h2>
           <span class="chip live">Available</span>
@@ -246,9 +284,10 @@
     <div class="product-head">
       <img src="assets/quintap.png" alt="Quintap app icon" width="72" height="72">
       <div>
+        <p class="kind">Puzzle game</p>
         <div class="product-title">
           <h2>Quintap</h2>
-          <span class="chip soon">Coming soon</span>
+          <span class="chip live">Available</span>
         </div>
         <p class="tagline">
           Tap a face and five change colour — the one you touched and its four
@@ -259,13 +298,18 @@
     </div>
 
     <div class="platforms">
-      <span class="store pending">Google Play &mdash; coming soon</span>
-      <span class="store pending">iOS &mdash; coming soon</span>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.meo.quintap">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8a1.5 1.5 0 0 0-.5 1.1v18.2c0 .45.18.85.48 1.12L13.4 12 3.6 1.8Zm11.1 8.8L5.5 1.1l11.1 6.4-1.9 3.1Zm0 2.8 1.9 3.1-11.1 6.4 9.2-9.5Zm2.9-4.6 3.1 1.8c1.05.6 1.05 2.2 0 2.8l-3.1 1.8-2.2-3.2 2.2-3.2Z"/></svg>
+        Google Play
+      </a>
+      <span class="store pending">App Store &mdash; coming soon</span>
     </div>
 
     <div class="meta-links">
       <a href="/game/quintap/privacy.html">Privacy Policy</a>
+      <a href="/game/quintap/terms.html">Terms of Use</a>
       <a href="/game/quintap/support.html">Support</a>
+      <a href="/game/quintap/delete-account.html">Delete account</a>
     </div>
   </article>
 </main>
